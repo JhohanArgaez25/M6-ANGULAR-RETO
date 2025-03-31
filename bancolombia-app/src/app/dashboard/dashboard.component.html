@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Cuenta Bancaria</h2>
+  <button class="button-top-right" (click)="onGoBack()">Logout</button>
+  <div class="row">
+    <div class="col-md-6">
+      <a routerLink="/account-balance" class="btn btn-primary">Consultar Saldo de la Cuenta</a>
+      <a routerLink="/deposit-branch" class="btn btn-primary">Depositar desde Sucursal</a>
+      <a routerLink="/deposit-atm" class="btn btn-primary">Depositar desde Cajero</a>
+      <a routerLink="/deposit-account" class="btn btn-primary">Depositar desde Cuenta</a>
+    </div>
+    <div class="col-md-6">
+      <a routerLink="/physical-purchase" class="btn btn-primary">Compra Fisica</a>
+      <a routerLink="/web-purchase" class="btn btn-primary">Compra Web</a>
+      <a routerLink="/withdrawal" class="btn btn-primary">Retiro</a>
+      <a routerLink="/transaction-history" class="btn btn-primary">Historico de transacciones</a>
+    </div>
+  </div>
+</div>

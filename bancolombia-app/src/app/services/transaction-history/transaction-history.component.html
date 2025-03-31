@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h3>Compra Fisica</h3>
+      <button class="button-top-right" (click)="onGoBack()">Regresar</button>
+      <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="accountId">ID de la Cuenta</label>
+          <input type="number" class="form-control" id="accountId" formControlName="accountId" required>
+          <div *ngIf="accountId?.invalid && (accountId?.dirty || accountId?.touched)" class="alert alert-danger">
+            <div *ngIf="accountId?.errors?.['required']">El ID de la cuenta es requerido.</div>
+            <div *ngIf="accountId?.errors?.['min']">El ID de la cuenta debe ser mayor que 0.</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Consultar</button>
+      </form>
+      <table *ngIf="transactions.length > 0" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tipo de Transacción</th>
+            <th>Monto</th>
+            <th>ID Cuenta</th>
+            <th>Fecha de Registro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.tipotransaccion }}</td>
+            <td>{{ transaction.monto | currency: 'USD' }}</td>
+            <td>{{ transaction.idcuenta }}</td>
+            <td>{{ transaction.fecharegistro | date: 'short' }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="errorMessage !== null" class="alert alert-danger">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.container {
+  margin-top: 20px;
+}
+
+h3 {
+  color: var(--secondary-color);
+}
+
+pre {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+}

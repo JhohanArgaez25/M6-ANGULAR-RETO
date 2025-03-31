@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h3>Depositar desde Sucursal</h3>
+      <button class="button-top-right" (click)="onGoBack()">Regresar</button>
+      <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="accountId">ID de la Cuenta</label>
+          <input type="number" class="form-control" id="accountId" formControlName="accountId" required>
+          <div *ngIf="accountId?.invalid && (accountId?.dirty || accountId?.touched)" class="alert alert-danger">
+            <div *ngIf="accountId?.errors?.['required']">El ID de la cuenta es requerido.</div>
+            <div *ngIf="accountId?.errors?.['min']">El ID de la cuenta debe ser mayor que 0.</div>
+          </div>
+          <label for="valor">Valor a depositar</label>
+          <input type="number" class="form-control" id="valor" formControlName="valor" required>
+          <div *ngIf="valor?.invalid && (valor?.dirty || valor?.touched)" class="alert alert-danger">
+            <div *ngIf="valor?.errors?.['required']">El Valor es requerido.</div>
+            <div *ngIf="valor?.errors?.['min']">El Valor debe ser mayor que 0.</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Depositar</button>
+      </form>
+      <div *ngIf="saldo !== null">
+        <h4>Saldo de la Cuenta</h4>
+        <pre>{{ saldo | currency:'USD':'symbol'}}</pre>
+        <pre>{{ message }}</pre>
+      </div>
+      <div *ngIf="errorMessage !== null" class="alert alert-danger">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+</div>

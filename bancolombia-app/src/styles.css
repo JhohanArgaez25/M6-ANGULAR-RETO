@@ -1,0 +1,50 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #000000;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: #000000;
+}
+
+.button-top-right {
+  position: absolute;
+  top: 10px; 
+  right: 10px; 
+  padding: 10px 20px;
+  background-color: #000000; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+
+.button-top-right:hover {
+  background-color: #000000; 
+}
+
+.btn-submit {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-submit:hover {
+  background-color: #000000;
+}
+
+h2 {
+  color: var(--secondary-color);
+  text-align: center;
+}
